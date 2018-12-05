@@ -10,6 +10,7 @@
 <body>
 <div id="app">
   <div class="mall-category">
+
     <div class="category-sidebar">
       <ul>
         <li :class="{active:index == topIndex}"
@@ -20,23 +21,39 @@
         </li>
       </ul>
     </div>
+
     <div class="category-content">
+
+
       <ul class="rank-content" v-if="topIndex === 0">
-        <li v-for="list in rankData.brandList">
+        <li v-for="list in hotGoods" @click="toSearch(list)">
           <img :src="list.img" alt="">
           {{list.name}}
         </li>
+        <li v-for="list in hotKeywords">
+          <!--<img :src="list.img" alt="">-->
+          {{list}}
+        </li>
+        <li v-for="list in hotShops">
+          <!--<img :src="list.img" alt="">-->
+          {{list.name}}
+        </li>
       </ul>
+
+
       <ul class="sub-content" v-if="topIndex > 0">
-        <li v-for="list in subData.brandList">
+        <li v-for="list in brandList" @click="toSearch(list)">
           <img :src="list.img" alt="">
           {{list.name}}
+          {{list.price}}
         </li>
-        <li v-for="list in subData.categoryList">
+        <li v-for="list in categoryList" @click="toSearch(list)">
           <img :src="list.img" alt="">
           {{list.name}}
         </li>
       </ul>
+
+
     </div>
   </div>
   <m-footer></m-footer>

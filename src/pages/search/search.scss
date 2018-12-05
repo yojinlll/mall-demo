@@ -1,0 +1,50 @@
+.clearFix::after{
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.search-header{
+  border: 1px solid black;
+  height: 50px;
+  line-height: 20px;
+  padding: 15px 0;
+  text-align: center;
+}
+
+.search-content{
+  float: left;
+  //border: 1px solid black;
+  //display: flex;
+  //flex-wrap: wrap;
+  //justify-content: space-around;
+
+  .search-item{
+    float: left;
+    border: 1px solid red;
+    margin: 12px;
+    padding: 10px;
+
+
+    div{
+      img{
+        width: 160px;
+      }
+    }
+  }
+}
+
+.go-top-icon{
+  width: 50px; height: 50px;
+  text-align: center;
+  color: #2a2a2a;
+  font-weight: 600;
+  padding: 15px 0;
+  line-height: 20px;
+  background: lightskyblue;
+  border-radius: 50%;
+  position: fixed;
+  right: 10px;
+  bottom: 20px;
+  transition: all 0.5s;
+}

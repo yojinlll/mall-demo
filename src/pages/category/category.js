@@ -6,18 +6,25 @@ import axios from 'axios'
 import url from '@/modules/js/api.js'
 
 import Footer from '../../components/m-footer'
+import mixin from '@/modules/js/mixin.js'
 
 
 new Vue({
   el: '#app',
-  components: {
-    'm-footer': Footer
-  },
+  // components: {
+  //   'm-footer': Footer
+  // },
   data: {
     topLists: null,
     topIndex: 0,
-    subData: null,
-    rankData: null
+
+    hotGoods: null,
+    hotKeywords: null,
+    hotShops: null,
+
+    brandList: null,
+    categoryList: null,
+
   },
   methods: {
     getTopLists(){
@@ -36,22 +43,27 @@ new Vue({
             id
           }
         }).then((res) => {
-          this.subData = res.data.data
-          console.log(this.subData)
+          this.brandList = res.data.data.brandList
+          this.categoryList = res.data.data.categoryList
         })
       }
     },
     getRank(){
-      axios.get(url.subList).then((res) => {
-        this.rankData = res.data.data
-        console.log(this.rankData)
+      axios.get(url.rank).then((res) => {
+        this.hotGoods = res.data.data.hotGoods;
+        this.hotKeywords = res.data.data.hotKeywords;
+        this.hotShops = res.data.data.hotShops;
       })
+    },
+    toSearch(list){
+      console.log(list)
+      location.href = `search.html?keyword=${list.name}&id=${list.id}`
     }
   },
   created(){
     this.getTopLists()
     this.getSubList(0,0)
-  }
+  },
 
-
+  mixins: [mixin]
 })

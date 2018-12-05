@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>search</title>
+</head>
+<body>
+<div id="app">
+
+  <div class="search-header">{{this.parameter.keyword}}</div>
+
+  <div class="search-content clearFix"
+       v-infinite-scroll="getSearchList"
+       infinite-scroll-disabled="loading"
+       infinite-scroll-distance="10"
+  >
+    <div class="search-item" v-for="list in searchLists">
+      <div>
+        <img :src="list.img" alt="">
+      </div>
+      ￥{{list.price | currency}}
+    </div>
+  </div>
+
+  <div class="go-top-icon" v-show="isShow" @click="goTop()">TOP</div>
+
+</div>
+</body>
+</html>

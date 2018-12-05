@@ -27,6 +27,11 @@ new Vue({
     'm-footer': Footer,
     'm-swipe': Swipe
   },
+  created(){
+    console.log(1111)
+    this.getLists()
+    this.getBanner()
+  },
   methods: {
     getLists(){
       if(this.allLoaded) return
@@ -60,10 +65,5 @@ new Vue({
         console.log(this.bannerLists)
       })
     }
-  },
-  created(){
-    console.log(1111)
-    this.getLists()
-    this.getBanner()
   }
 })
