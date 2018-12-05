@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>category</title>
+</head>
+<body>
+<div id="app">
+  <div class="mall-category">
+    <div class="category-sidebar">
+      <ul>
+        <li :class="{active:index == topIndex}"
+            :data-id="list.id"
+            @click="getSubList(list.id,index)"
+            v-for="(list,index) in topLists">
+          {{list.name}}
+        </li>
+      </ul>
+    </div>
+    <div class="category-content">
+      <ul class="rank-content" v-if="topIndex === 0">
+        <li v-for="list in rankData.brandList">
+          <img :src="list.img" alt="">
+          {{list.name}}
+        </li>
+      </ul>
+      <ul class="sub-content" v-if="topIndex > 0">
+        <li v-for="list in subData.brandList">
+          <img :src="list.img" alt="">
+          {{list.name}}
+        </li>
+        <li v-for="list in subData.categoryList">
+          <img :src="list.img" alt="">
+          {{list.name}}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <m-footer></m-footer>
+</div>
+</body>
+</html>

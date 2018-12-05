@@ -1,0 +1,42 @@
+.mall-category{
+  display: flex;
+
+
+  .category-sidebar {
+    text-align: center;
+    width: 25%;
+    height: 100vh;
+
+
+    ul {
+      width: 25%;
+      position: fixed;
+      margin-top: 50px;
+
+      li {
+        border: 1px solid #e0e0e0;
+        line-height: 50px;
+      }
+      .active{
+        background: #ff7c6e;
+      }
+    }
+  }
+
+  .category-content{
+    border: 2px solid blue;
+    flex: 1;
+
+    ul{
+      margin-bottom: 70px;
+      li{
+        border: 1px solid red;
+
+
+        img{
+          width: 100px; height: 100px;
+        }
+      }
+    }
+  }
+}
