@@ -3,7 +3,6 @@
     <div class="swiper-wrapper">
       <div class="swiper-slide" v-for="list in lists">
         <img :src="list.img" alt="">
-        {{list.img}}
       </div>
     </div>
     <div class="swiper-pagination"></div>
@@ -35,19 +34,5 @@
   }
 </script>
 
-<style lang="scss" scoped>
-  .swiper-container {
-    width: 100%;
-    height: 200px;
-
-    img {
-      width: 100%;
-      height: 100%;
-    }
-
-    .swiper-pagination {
-    }
-  }
-
-
+<style lang="scss">
 </style>

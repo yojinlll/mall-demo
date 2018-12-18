@@ -19,9 +19,11 @@
     infinite-scroll-disabled="loading"
     infinite-scroll-distance="10">
     <li v-for="list in lists" :key="list.id">
-      <img :src="list.img" alt="">
-      {{list.name}}
-      {{list.price}}
+      <a :href="'goods.html?id='+ list.id">
+        <img :src="list.img" alt="">
+        {{list.name}}
+        {{list.price}}
+      </a>
     </li>
   </ul>
 

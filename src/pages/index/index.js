@@ -21,14 +21,13 @@ new Vue({
     pageSize: 6,
     loading: false,     // true 加载
     allLoaded: false,
-    bannerLists: null
+    bannerLists: []
   },
   components: {
     'm-footer': Footer,
     'm-swipe': Swipe
   },
   created(){
-    console.log(1111)
     this.getLists()
     this.getBanner()
   },
@@ -62,7 +61,6 @@ new Vue({
     getBanner(){
       axios.get(url.banner).then((res)=>{
         this.bannerLists = res.data.lists
-        console.log(this.bannerLists)
       })
     }
   }

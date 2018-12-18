@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>goods</title>
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+<div id="app" v-if="details" v-cloak>
+  <div class="goods-wrapper">
+
+    <!--<div v-for="item in details.imgs">-->
+    <!--<img :src="item" alt="">-->
+    <!--</div>-->
+    <div class="goods-swipe">
+      <m-swipe :lists="swipeLists"></m-swipe>
+    </div>
+
+    <div class="goods-content">
+      <div>originalPrice:{{details.originalPrice}}</div>
+      <div>postage:{{details.postage}}</div>
+      <div>price:{{details.price}}</div>
+      <div>sales:{{details.sales}}</div>
+
+      <div>title:{{details.title}}</div>
+      <div>storeName:{{details.storeName}}</div>
+      <div>skuList:{{details.skuList}}</div>
+      <div>remain:{{details.remain}}</div>
+      <div>identification:{{details.identification}}</div>
+
+      <!--<div>description:{{details.description}}</div>-->
+      <div v-html="details.description"></div>
+    </div>
+
+  </div>
+  <transition name="fade-1">
+    <div class="goods-wrapper-shadow" v-show="showSku" @click="showSku=false">
+      <transition name="fade-2">
+        <div class="goods-chooseSku" v-show="showSku">
+          <div class="close-button" @click="showSku=false">close</div>
+        </div>
+      </transition>
+    </div>
+  </transition>
+  <div class="goods-button" @click="chooseSku">
+    <div class="button-item">添加购物车</div>
+    <div class="button-item">立即购买</div>
+  </div>
+</div>
+</body>
+</html>

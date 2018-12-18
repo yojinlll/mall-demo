@@ -1,10 +1,20 @@
 let url = {
   hotLists: '/index/hotLists',
   banner: '/index/banner',
+
   topList: '/category/topList',
   subList: '/category/subList',
   rank: '/category/rank',
-  searchList: '/search/list'
+
+  searchList: '/search/list',
+
+  details: '/goods/details',
+
+  cartAdd: '/cart/update',
+  cartLists: '/cart/list',
+  cartReduce: '/cart/reduce',
+  cartRemove: '/cart/remove',
+  cartMrremove: '/cart/mrremove',
 }
 
 //开发环境和真实环境的切换
@@ -15,6 +25,5 @@ for(let key in url){
     url[key] = host + url[key]
   }
 }
-
 
 export default url
